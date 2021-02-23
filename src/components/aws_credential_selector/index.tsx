@@ -103,48 +103,6 @@ const CredentialSelector = () => {
           initialValues={{ credential_id: aws_credentials?.id, region_code: aws_region }}
         >
           <Credential />
-          {/* <FormInput
-            required
-            hasLabel
-            name="description"
-            label={intl.formatMessage({ id: 'description' })}
-            placeholder={intl.formatMessage({ id: 'description' })}
-            type="input"
-          />
-          <FormInput
-            required
-            hasLabel
-            name="access_key"
-            label={intl.formatMessage({ id: 'access_key' })}
-            placeholder={intl.formatMessage({ id: 'access_key' })}
-            type="input"
-          />
-          <FormInput
-            required
-            hasLabel
-            name="secret_key"
-            label={intl.formatMessage({ id: 'secret_key' })}
-            placeholder={intl.formatMessage({ id: 'secret_key' })}
-            type="input"
-          /> */}
-          {/* <FormInput required hasLabel label={intl.formatMessage({ id: 'credential' })} name="credential_id">
-            <Select placeholder={intl.formatMessage({ id: 'credential' })}>
-              {awsCredentials.map((credential) => (
-                <Select.Option key={credential.id} value={credential.id}>
-                  {credential.description}
-                </Select.Option>
-              ))}
-            </Select>
-          </FormInput> */}
-          {/* <FormInput required hasLabel label={intl.formatMessage({ id: 'region' })} name="region_code">
-            <Select placeholder={intl.formatMessage({ id: 'region' })}>
-              {Regions.map((region) => (
-                <Select.Option key={region.name} value={region.value}>
-                  {region.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </FormInput> */}
         </Form>
       </ModalForm>
     </>

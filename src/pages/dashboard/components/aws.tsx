@@ -8,7 +8,6 @@ import dayjs, { Dayjs } from 'dayjs'
 import { AwsCostForecastResult, AwsCostResult } from 'models'
 import React, { useEffect, useRef, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
-import { ResponsiveBar } from '@nivo/bar'
 import { FormattedMessage } from 'react-intl'
 import { DayJSFormatAWS, DayJsFormatOnlyDate, moneyFormat, moneyFormatDollar } from 'utils'
 import Table from './table'
@@ -312,8 +311,7 @@ const AwsBilling: React.FC<Props> = () => {
                   <Icon component={ForecastIcon} style={{ fontSize: 36, marginRight: 8 }} />
                   <span className={styles.title}>
                     <span className={styles.label}>
-                      Түүх
-                      {/* <FormattedMessage id="billing.forecast_cost" /> */}
+                      <FormattedMessage id="billing.forecast_cost" />
                     </span>
                     <span className={styles.subTitle}>
                       ({DayJSFormatAWS(startOfMonth)} - {DayJSFormatAWS(endOfMonth)})
@@ -330,9 +328,8 @@ const AwsBilling: React.FC<Props> = () => {
             </Card>
           </Col>
         </Row>
-        <Row gutter={12}>
+        <Row gutter={14}>
           <Col xl={20} md={16} xs={24}>
-            {/* graph bar хэсэг */}
             <Bar
               data={{
                 labels: chartLabel,

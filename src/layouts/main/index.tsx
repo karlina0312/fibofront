@@ -1,16 +1,12 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-expressions */
-import Icon, { AppstoreFilled } from '@ant-design/icons'
+import { AppstoreFilled } from '@ant-design/icons'
 import ProLayout, { MenuDataItem, Settings } from '@ant-design/pro-layout'
-import { ReactComponent as AWSIcon } from 'assets/icons/aws.svg'
-import { ReactComponent as K8sIcon } from 'assets/icons/kubernetes.svg'
 import logo from 'assets/logo.svg'
 import { PoweredBy } from 'components'
 import defaultSettings from 'configs'
-import { ReduxInterface, UserInterface } from 'models'
 import React, { useState } from 'react'
 import { useIntl } from 'react-intl'
-import { useSelector } from 'react-redux'
 import { Link, RouteComponentProps, useHistory, withRouter } from 'react-router-dom'
 import styles from './styles.module.scss'
 import RightContent from './TopRight'
@@ -33,7 +29,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
         key: 'dashboard',
         name: intl.formatMessage({ id: 'menu.dashboard' }),
         path: '/dashboard',
-        icon: <AppstoreFilled style={{ fontSize: 16 }} />,
+        icon: <AppstoreFilled style={{ fontSize: 14 }} />,
       },
     ]
 
@@ -43,7 +39,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
   return (
     <ProLayout
       logo={logo}
-      siderWidth={280}
+      siderWidth={200}
       disableMobile={false}
       onMenuHeaderClick={() => history.push('/')}
       menuHeaderRender={(logoDom, titleDom) => (
@@ -58,13 +54,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children, ...props }) => {
       menuItemRender={(menuItemProps, defaultDom) => {
         return menuItemProps.isUrl ? defaultDom : <Link to={menuItemProps.path || '/'}>{defaultDom}</Link>
       }}
-      rightContentRender={() => <RightContent />}
+      rightContentRender={() => (
+        <div className={styles.top}>
+          <RightContent />
+        </div>
+      )}
       footerRender={() => (
         <div className={styles.footer}>
           <PoweredBy color="black" />
         </div>
       )}
-      contentStyle={{ overflow: 'auto', height: 'calc(100vh - 125px)', padding: 12 }}
+      contentStyle={{ overflow: 'auto', height: 'calc(100vh - 50px)' }}
       {...props}
       {...settings}
     >
