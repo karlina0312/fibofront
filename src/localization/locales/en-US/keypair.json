@@ -1,0 +1,13 @@
+{
+    "keypair.fingerprint": "Fingerprint",
+    "keypair.create_title": "Create key pair",
+    "keypair.create_warning": "Key Pairs are how you login to your instance after it is launched. Choose a key pair name you will recognize. Names may only include alphanumeric characters, spaces, or dashes.",
+    "keypair.import_title": "Import key pair",
+    "keypair.public_key": "Public key",
+    "keypair.import_info_1": "Key Pairs are how you login to your instance after it is launched.",
+    "keypair.import_info_2": "Choose a key pair name you will recognise and paste your SSH public key into the space provided.",
+    "keypair.import_info_3": "SSH key pairs can be generated with the ssh-keygen command",
+    "keypair.import_info_4": "This generates a pair of keys: a key you keep private (cloud.key) and a public key (cloud.key.pub). Paste the contents of the public key file here.",
+    "keypair.import_info_5": "After launching an instance, you login using the private key (the username might be different depending on the image you launched)",
+    "keypair.delete_title": "Delete key pair"
+}

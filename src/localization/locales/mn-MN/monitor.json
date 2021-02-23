@@ -1,0 +1,19 @@
+{
+  "monitor.vcpu_and_ram": "vCpu & vRam",
+  "monitor.vcpu": "vCpu usage",
+  "monitor.vram": "vRam usage",
+  "monitor.cinder_size": "Cinder size",
+  "monitor.ip_info": "Ip information",
+  "monitor.volume_info": "Volume information",
+  "monitor.number_of_volume": "Number of volume",
+  "monitor.number_of_snapshot": "Number of snapshot",
+  "monitor.number_of_vm": "Number of VM",
+  "monitor.running_vm_on_computer": "Running VM on computer",
+  "monitor.free_space_on_lvms": "Free space on LVMs",
+  "monitor.other_info": "Other information",
+  "monitor.flavors": "Flavors",
+  "monitor.floating_ips": "Floating IPs",
+  "monitor.routers": "Routers",
+  "monitor.images": "Images",
+  "monitor.hostname_changed": "Хостын нэрүүд өөрчлөгдсөн"
+}

@@ -1,0 +1,18 @@
+{
+  "volume.bootable": "Ачаалах боломжтой",
+  "volume.encrypted": "Шифрлэгдсэн",
+  "volume.detail_title": "Виртуал дискний ({name}) дэлгэрэнгүй",
+  "volume.attachments": "Холбогдсон виртуал серверүүд",
+  "volume.attached_to": "Холбогдсон",
+  "volume.volume_source": "Виртуал дискний эх сурвалж",
+  "volume.image": "Үйлдлийн систем",
+  "volume.create_title": "Виртуал диск үүсгэх",
+  "volume.extend": "Өргөтгөх",
+  "volume.extend_title": "Виртуал диск ({name}) өргөтгөх, одоогийн хэмжээ ({size} GB)",
+  "volume.new_size": "Шинэ хэмжээ",
+  "volume.delete_title": "Виртуал диск устгах",
+  "volume.snapshot_title": "Виртуал дискнээс хуулбар авах ({name}), хэмжээ ({size} GB)",
+  "volume.availability_zone": "Боломжит бүс",
+  "volume.update_title": "Виртуал дискний ({name}) засах",
+  "volume_snapshot_warning": "Сервер дээр mysql болон бусад төрлийн database ажилж байгаа бол үүнийг гар аргаар авахыг зөвлөж байна."
+}

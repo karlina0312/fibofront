@@ -1,0 +1,15 @@
+.card {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  padding: 8px 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.85);
+  margin-bottom: 24px;
+}

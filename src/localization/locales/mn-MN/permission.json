@@ -1,0 +1,9 @@
+{
+  "permission.create_title": "Зөвшөөрөл үүсгэх",
+  "permission.detail_title": "Зөвшөөрөлийн ({name}) дэлгэрэнгүй",
+  "permission.update_title": "Зөвшөөрөл ({name}) засах",
+  "permission.delete_title": "Зөвшөөрөл устгах",
+  "permission.created": "{name} зөвшөөрөл үүсгэж байна.",
+  "permission.deleted": "{name} зөвшөөрөл устгаж байна.",
+  "permission.updated": "{name} зөвшөөрөл засаж байна."
+}

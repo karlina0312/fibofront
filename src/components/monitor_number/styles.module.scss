@@ -1,0 +1,28 @@
+.card {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  padding: 8px 16px;
+}
+
+.numberContainer {
+  display: flex;
+  justify-content: space-around;
+  color: #1990fe;
+}
+
+.span {
+  font-size: 36px;
+  margin: 0 16px;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  white-space: pre;
+}
+
+.suffix {
+  font-size: 24px;
+}

@@ -1,0 +1,11 @@
+{
+  "role.create_title": "Create role",
+  "role.detail_title": "Role ({name}) detail",
+  "role.update_title": "Update ({name}) role",
+  "role.delete_title": "Delete role",
+  "role.created": "{name} role is creating.",
+  "role.deleted": "{name} role is deleting.",
+  "role.updated": "{name} role is updating.",
+  "role.permission_update_title": "Update ({name}) role permissions",
+  "role.permission_updated": "{name} role permissions is updating."
+}

@@ -1,0 +1,19 @@
+{
+  "router.create_title": "Create router",
+  "router.detail_title": "Router ({name}) detail",
+  "router.update_title": "Update ({name}) router",
+  "router.delete_title": "Delete router",
+  "router.created": "{name} router is creating.",
+  "router.deleted": "{name} router is deleting.",
+  "router.updated": "{name} router is updating.",
+  "router.interface_create_title": "Create interface",
+  "router.interface_update_title": "Update ({name}) interface",
+  "router.interface_delete_title": "Delete interfaces",
+  "router.interface_created": "{name} interface is creating.",
+  "router.interface_deleted": "{name} interfaces is deleting.",
+  "router.interface_updated": "{name} interface is updating.",
+  "router.interface": "Interface",
+  "router.interfaces": "Interfaces",
+  "router.ext_network_id": "External network",
+  "router.distributed": "Distributed"
+}

@@ -1,0 +1,6 @@
+{
+    "system.endpoints": "Endpoints",
+    "system.compute_services": "Compute services",
+    "system.block_storage_services": "Block storage services",
+    "system.network_agents": "Network agents"
+}

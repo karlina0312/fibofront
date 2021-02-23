@@ -1,0 +1,9 @@
+{
+  "floating_ip.create_title": "Create Floating IP",
+  "floating_ip.detail_title": "Floating IP ({name}) detail",
+  "floating_ip.update_title": "Update ({name}) Floating IP",
+  "floating_ip.delete_title": "Delete Floating IP",
+  "floating_ip.created": "{name} floating ip is creating.",
+  "floating_ip.deleted": "{name} floating ip is deleting.",
+  "floating_ip.updated": "{name} floating ip is updating."
+}

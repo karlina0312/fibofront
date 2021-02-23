@@ -1,0 +1,13 @@
+{
+    "valid.required": "This field is required!",
+    "valid.required_text": "This field is required and text!",
+    "valid.required_password": "This field is required and password!",
+    "valid.required_number": "This field is required and number!",
+    "valid.email": "This is should be email!",
+    "valid.phone": "This is should be phone number!",
+    "valid.delete": "Please if you are sure, fill out the \"{confirm}\" form.",
+    "valid.instance_name": "You can't use \"{value}\". It is linux default username.",
+    "valid.name_exist": "This name already exist.",
+    "valid.port": "Enter an integer value between 1 and 65535.",
+    "valid.s3_name": "3-63 characters. Starts and ends with a lowercase letter or number. Only lowercase letters, numbers, nonconsecutive periods or hyphens. Avoid using the form of an IP address. Globally unique name"
+}

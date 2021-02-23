@@ -1,0 +1,11 @@
+{
+  "role.create_title": "Эрх үүсгэх",
+  "role.detail_title": "Эрхийн ({name}) дэлгэрэнгүй",
+  "role.update_title": "Эрх ({name}) засах",
+  "role.delete_title": "Эрх устгах",
+  "role.created": "{name} эрх үүсгэж байна.",
+  "role.deleted": "{name} эрх устгаж байна.",
+  "role.updated": "{name} эрх засаж байна.",
+  "role.permission_update_title": "Эрхийн ({name}) зөвшөөрөлүүд засах",
+  "role.permission_updated": "{name} эрхийн зөвшөөрөлүүд засаж байна."
+}

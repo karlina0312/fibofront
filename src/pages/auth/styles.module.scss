@@ -1,0 +1,47 @@
+.container {
+  padding: 1%;
+}
+
+.form {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  .title {
+    font-weight: 700;
+    margin: 0 0 0 12px;
+  }
+}
+
+.buttonContainer {
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+.button {
+  height: 40px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  min-width: 300px;
+  border-radius: 6px;
+  padding: 0 12px;
+  line-height: 32px;
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.65);
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}

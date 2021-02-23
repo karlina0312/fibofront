@@ -1,0 +1,18 @@
+{
+  "volume.bootable": "Bootable",
+  "volume.encrypted": "Encrypted",
+  "volume.detail_title": "Volume ({name}) detail",
+  "volume.attachments": "Attachments",
+  "volume.attached_to": "Attached To",
+  "volume.volume_source": "Volume Source",
+  "volume.image": "Үйлдлийн систем",
+  "volume.create_title": "Create volume",
+  "volume.extend": "Extend",
+  "volume.extend_title": "Extend volume ({name}) current size ({size} GB)",
+  "volume.new_size": "New size",
+  "volume.delete_title": "Delete volume",
+  "volume.snapshot_title": "Snapshot volume ({name}) size ({size} GB)",
+  "volume.availability_zone": "Availability zone",
+  "volume.update_title": "Volume ({name}) update",
+  "volume_snapshot_warning": "If mysql and other types of databases are running on the server, it is recommended that you get them manually."
+}

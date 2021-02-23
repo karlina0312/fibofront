@@ -1,0 +1,3013 @@
+swagger: '2.0'
+basePath: /api/v1
+schemes:
+  - 'http'
+  - 'https'
+produces:
+  - 'application/json'
+consumes:
+  - 'application/json'
+info:
+  title: ICS API Documentation
+  description: Itools Cloud Service API Documentation
+  version: 1.0.0
+  termsOfService: https://ics.itools.mn/
+  x-logo:
+    url: 'https://ics.itools.mn/static/media/logo.fdeb71f8.png'
+  contact:
+    email: we@fibo.cloud
+paths:
+  /auth/login:
+    post:
+      summary: 'Login'
+      tags:
+        - 'Authentication'
+      consumes:
+        - 'application/json'
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              email: string
+              password: string
+      responses:
+        '200':
+          body:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: string
+                    description: Token string.
+          description: '{string} login success'
+        '403':
+          description: user not exist
+  /auth/logout:
+    get:
+      tags:
+        - Authentication
+      summary: Logout
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+  /auth/resetPassword:
+    post:
+      tags:
+        - Authentication
+      summary: Reset password
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              token: string
+              newPassword: string
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: string
+                    description: Token string.
+  /user/GetUserDetail:
+    get:
+      tags:
+        - Authentication
+      summary: Get auth user data
+      operationId: UsersController.GetUserDetail
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: User data.
+        '403':
+          description: ''
+  /auth/signUp:
+    post:
+      tags:
+        - Authentication
+      summary: Register
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              email: string
+              password: string
+              firstname: string
+              lastname: string
+      responses:
+        '200':
+          description: '{string} id'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: boolean
+                    description: Success.
+  /auth/confirmEmail:
+    post:
+      tags:
+        - Authentication
+      summary: Email confirm
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              email: string
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: boolean
+                    description: Success.
+  /auth/forgotPassword:
+    post:
+      tags:
+        - Authentication
+      summary: Forgot password
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              email: string
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: boolean
+                    description: Success.
+  /instance/action:
+    post:
+      tags:
+        - Instance
+      summary: Actions list
+      operationId: InstanceController.Action
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+      responses:
+        '200':
+          description: '{string} logout success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Instance actions list.
+  /instance/addSecGroupToServer:
+    post:
+      tags:
+        - Instance
+      summary: Add security group
+      operationId: InstanceController.AddSecGroupToServer
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              secgroup_id: string
+              server_id: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/cloneInstance:
+    post:
+      tags:
+        - Instance
+      summary: Clone
+      operationId: InstanceController.clone instance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              serverName: string
+              keypairName: string
+              instancePassword: string
+              instanceRoot: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Created instance
+        '403':
+          description: ''
+  /instance/confirmResizeInstance:
+    post:
+      tags:
+        - Instance
+      summary: Confirm resize
+      operationId: InstanceController.ConfirmResizeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/createInstance:
+    post:
+      tags:
+        - Instance
+      summary: Create
+      operationId: InstanceController.CreateInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              code: string
+              flavor_id: string
+              image_id: string
+              name: string
+              keypair_name: string
+              secgroup_ids: '[]interface{}'
+              custom_flavor: 'map[string]interface{}'
+              root_size: float64
+              script_id: string
+              availability_zone: string
+              instance_password: string
+              instance_root: string
+              delete_on_termination: boolean
+              network_id: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Created instance
+        '403':
+          description: ''
+  /instance/createSnapshot:
+    post:
+      tags:
+        - Instance
+      summary: Create snapshot
+      operationId: InstanceController.Create Snapshot from Instance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              name: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Created snapshot
+        '403':
+          description: ''
+  /instance/deleteInstance:
+    delete:
+      tags:
+        - Instance
+      summary: Delete
+      operationId: InstanceController.DeleteInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /image/listImage:
+    get:
+      tags:
+        - Instance
+      summary: OS Images list
+      operationId: ImageController.ImageList
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: OS Images
+        '403':
+          description: ''
+  /instance/getInstance:
+    post:
+      tags:
+        - Instance
+      summary: Get
+      operationId: InstanceController.GetInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Instance
+        '403':
+          description: ''
+  /instance/listAvailabilityZones:
+    get:
+      tags:
+        - Instance
+      summary: List availability zones
+      operationId: InstanceController.ListAvailabilityZones
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Availability zones
+        '403':
+          description: ''
+  /instance/listInstance:
+    get:
+      tags:
+        - Instance
+      summary: Instances list
+      operationId: InstanceController.GetAll
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Instances
+        '403':
+          description: ''
+  /instance/rebootInstance:
+    post:
+      tags:
+        - Instance
+      summary: Reboot
+      operationId: InstanceController.RebootInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              server_ids: '[]string'
+              type: 'hard|soft'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/remoteConsole:
+    post:
+      tags:
+        - Instance
+      summary: Remote console
+      operationId: InstanceController.Creating remote console url
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: VNC url object
+        '403':
+          description: ''
+  /instance/resizeInstance:
+    put:
+      tags:
+        - Instance
+      summary: Resize
+      operationId: InstanceController.ResizeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: 'string'
+              newflavorID: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/resumeInstance:
+    post:
+      tags:
+        - Instance
+      summary: Resume
+      operationId: InstanceController.ResumeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/revertResizeInstance:
+    post:
+      tags:
+        - Instance
+      summary: Revert resize
+      operationId: InstanceController.RevertResizeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Action list
+        '403':
+          description: ''
+  /instance/showConsole:
+    post:
+      tags:
+        - Instance
+      summary: Show console log
+      operationId: InstanceController.ShowConsole
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              length: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Console log rows
+        '403':
+          description: ''
+  /instance/startInstance:
+    post:
+      tags:
+        - Instance
+      summary: Start
+      operationId: InstanceController.StaratInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Instance
+        '403':
+          description: ''
+  /instance/stopInstance:
+    post:
+      tags:
+        - Instance
+      summary: Stop
+      operationId: InstanceController.StopInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /instance/suspendInstance:
+    post:
+      tags:
+        - Instance
+      summary: Suspend
+      operationId: InstanceController.SuspendInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /flavor/listFlavor:
+    get:
+      tags:
+        - Instance
+      summary: Flavors list
+      operationId: FlavorController.FlavorListInstance
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Flavors
+        '403':
+          description: ''
+  /keypair/createKeyPair:
+    post:
+      tags:
+        - Keypair
+      summary: Create
+      operationId: KeyPairController.CreateKeyPair
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              keyPairName: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Created key pair
+        '403':
+          description: ''
+  /keypair/deleteKeyPairName:
+    delete:
+      tags:
+        - Keypair
+      summary: Delete
+      operationId: KeyPairController.DeleteKeyPairPlease
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              keyPairName: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /keypair/getKeyPair:
+    post:
+      tags:
+        - Keypair
+      summary: Get
+      operationId: KeyPairController.GetKeyPair
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              keyPairName: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Key pair
+        '403':
+          description: ''
+  /keypair/importKeypair:
+    post:
+      tags:
+        - Keypair
+      summary: Import
+      operationId: KeyPairController.ImportKeyPair
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              keyPairName: 'string'
+              publicKey: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Key pair
+        '403':
+          description: ''
+  /keypair/listKeyPair:
+    get:
+      tags:
+        - Keypair
+      summary: List
+      operationId: KeyPairController.ListKeyPair
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Key pairs
+        '403':
+          description: ''
+  /volume/attachVolume:
+    post:
+      tags:
+        - Volume
+      summary: Attach instance
+      operationId: VolumeController.AttachVolumeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: 'string'
+              volumeID: 'string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume attachment
+        '403':
+          description: ''
+  /volume/createServerFromNewVolume:
+    post:
+      tags:
+        - Volume
+      summary: Create volume for instance
+      operationId: VolumeController.CreateServerFromNewVolume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              serverName: string
+              flavorID: string
+              volumeSize: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Instance
+        '403':
+          description: ''
+  /volume/createSnapshot:
+    post:
+      tags:
+        - Volume
+      summary: Create snapshot
+      operationId: VolumeController.Create snapshot from Volume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              name: string
+              volumeID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Snapshot
+        '403':
+          description: ''
+  /volume/createVolume:
+    post:
+      tags:
+        - Volume
+      summary: Create volume
+      operationId: VolumeController.CreateVolume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              size: number
+              name: string
+              volumeType: string
+              description: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume
+        '403':
+          description: ''
+  /volume/createVolumeType:
+    post:
+      tags:
+        - Volume
+      summary: Create volume type
+      operationId: VolumeController.CreateVolumeType
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              name: string
+              description: string
+              isPublic: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume type
+        '403':
+          description: ''
+  /volume/deleteVolume:
+    delete:
+      tags:
+        - Volume
+      summary: Delete
+      operationId: VolumeController.DeleteVolume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              volumeID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /volume/deleteVolumeType:
+    delete:
+      tags:
+        - Volume
+      summary: Volume type
+      operationId: VolumeController.DeleteVolumeType
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              volumeTypeID: '[]string'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /volume/detachVolume:
+    post:
+      tags:
+        - Volume
+      summary: Detach from instance
+      operationId: VolumeController.DetachVolumeInstance
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              attachmentID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /volume/extendVolume:
+    post:
+      tags:
+        - Volume
+      summary: Extend
+      operationId: VolumeController.ExtendVolume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              volumeID: string
+              newSize: number
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /volume/getVolume:
+    post:
+      tags:
+        - Volume
+      summary: Get
+      operationId: VolumeController.GetVolume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              volumeID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume
+        '403':
+          description: ''
+  /volume/getVolumeType:
+    post:
+      tags:
+        - Volume
+      summary: Get volume type
+      operationId: VolumeController.GetVolumeType
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              volumeTypeID: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume type
+        '403':
+          description: ''
+  /volume/listVolume:
+    post:
+      tags:
+        - Volume
+      summary: List
+      operationId: VolumeController.ListVolume
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Volumes list
+        '403':
+          description: ''
+  /volume/listVolumeType:
+    get:
+      tags:
+        - Volume
+      summary: List volume type
+      operationId: VolumeController.ListVolumeType
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Volume types list
+        '403':
+          description: ''
+  /volume/updateVolumeType:
+    put:
+      tags:
+        - Volume
+      summary: Update volume type
+      operationId: VolumeController.UpdateVolumeType
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              newName: string
+              volumeTypeID: string
+              description: string
+              isPublic: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume type
+        '403':
+          description: ''
+  /volume/volumeLaunchIntsance:
+    post:
+      tags:
+        - Volume
+      summary: Launch intsance from volume
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              custom_flavor: string
+              volume_id: string
+              server_name: string
+              keypair_name: string
+              instance_password: string
+              instance_root: string
+              flavor_id: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Volume type
+        '403':
+          description: ''
+  /snapshot/createServerFromSnapshot:
+    post:
+      tags:
+        - Snapshot
+      summary: Create instance from snapshot
+      operationId: SnapshotController.CreateServerFromSnapshot
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverName: string
+              flavorID: string
+              imageID: string
+              bootImageID: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Instance
+        '403':
+          description: ''
+  /snapshot/deleteSnapshot:
+    delete:
+      tags:
+        - Snapshot
+      summary: Delete
+      operationId: SnapshotController.Delete Snapshot
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              snapshotID: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /snapshot/launchSnapshot:
+    post:
+      tags:
+        - Snapshot
+      summary: Launch instance
+      operationId: SnapshotController.LaunchSnapshot
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              customFlavor: string
+              snapshotID: string
+              serverName: string
+              keypairName: string
+              volumeSize: string
+              instance_password: string
+              instance_root: string
+              flavorID: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Instance
+        '403':
+          description: body is empty
+  /snapshot/snapshotList:
+    post:
+      tags:
+        - Snapshot
+      summary: Snapshots list
+      operationId: SnapshotController.GetAll
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              tenantID: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Snapshots
+        '403':
+          description: ''
+  /bill/alarm/create:
+    post:
+      tags:
+        - Billing
+      summary: Alarm create
+      operationId: BillController.BillAlarmCreate
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              amount: number
+              desc: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Alarm
+        '403':
+          description: ''
+  /bill/alarm/delete:
+    delete:
+      tags:
+        - Billing
+      summary: Alarm delete
+      operationId: BillController.BillAlarmDelete
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              id: number
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /bill/billList:
+    get:
+      tags:
+        - Billing
+      summary: Billing list
+      operationId: BillController.BillList
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Billing
+        '403':
+          description: ''
+  /bill/detail:
+    get:
+      tags:
+        - Billing
+      summary: Billing detail
+      operationId: BillController.BillingDetail
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Billing
+        '403':
+          description: ''
+  /invoice/invoices:
+    get:
+      tags:
+        - Billing
+      summary: Invoices list
+      operationId: InvoiceController.invoices
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Invoices
+        '403':
+          description: ''
+  /invoice/getInvoice:
+    post:
+      tags:
+        - Billing
+      summary: Invoice get
+      operationId: InvoiceController.Get
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              UUID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Invoice
+        '403':
+          description: ''
+  /network/GetNetWorkFloatingIps:
+    post:
+      tags:
+        - Network
+      summary: Floating IPs list
+      operationId: NetworkController.GetNeutromLBAASHM
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Floating IPs
+        '403':
+          description: ''
+  /network/associateFIP:
+    post:
+      tags:
+        - Network
+      summary: Floating IP update
+      operationId: NetworkController.UpdateFloatingIP
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              fipID: string
+              portID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Floating IP
+        '403':
+          description: ''
+  /network/createFloatingIP:
+    post:
+      tags:
+        - Network
+      summary: Floating IP create
+      operationId: NetworkController.CreateFloatingIP
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              description: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Floating IP
+        '403':
+          description: ''
+  /network/createNetwork:
+    post:
+      tags:
+        - Network
+      summary: Network create
+      operationId: NetworkController.CreateNetwork
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkName: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Network
+        '403':
+          description: ''
+  /network/createPort:
+    post:
+      tags:
+        - Network
+      summary: Port create
+      operationId: NetworkController.CreatePort
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              name: string
+              secGroupIDs: '[]string'
+              networkID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Port
+        '403':
+          description: ''
+  /network/createSubnet:
+    post:
+      tags:
+        - Network
+      summary: Subnet create
+      operationId: NetworkController.CreateSubnet
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              name: string
+              gatewayIP: string
+              networkID: string
+              cidr: string
+              allocationPools: '[]interface{}'
+              dnsNameServers: '[]string'
+              hostRoutes: '[]interface{}'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Subnet
+        '403':
+          description: ''
+  /network/deleteFloatingIP:
+    delete:
+      tags:
+        - Network
+      summary: Floating IP delete
+      operationId: NetworkController.DeleteFLoatingIP
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              fipID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/deleteNetwork:
+    delete:
+      tags:
+        - Network
+      summary: Network delete
+      operationId: NetworkController.DeleteNetwork
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/deletePort:
+    delete:
+      tags:
+        - Network
+      summary: Ports delete
+      operationId: NetworkController.DeletePorts
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              portIDs: '[]string'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/deleteSubnet:
+    delete:
+      tags:
+        - Network
+      summary: Subnet delete
+      operationId: NetworkController.DeleteSubnet
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              subnetID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/disassociatedFIP:
+    post:
+      tags:
+        - Network
+      summary: Floating IP disassociate
+      operationId: NetworkController.DisassociateFIP
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              floating_ip: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Floating IP
+        '403':
+          description: ''
+  /network/getNetwork:
+    post:
+      tags:
+        - Network
+      summary: Network get
+      operationId: NetworkController.GetNetwork
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Network
+        '403':
+          description: ''
+  /network/getPort:
+    post:
+      tags:
+        - Network
+      summary: Port get
+      operationId: NetworkController.GetPort
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              portID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Port
+        '403':
+          description: ''
+  /network/getSubnet:
+    post:
+      tags:
+        - Network
+      summary: Subnet get
+      operationId: NetworkController.GetSubnet
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              subnetID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Subnet
+        '403':
+          description: ''
+  /network/listFloatingIPs:
+    get:
+      tags:
+        - Network
+      summary: FloatingIPs list
+      operationId: NetworkController.ListFloatingIPs
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Floating IPs
+        '403':
+          description: ''
+  /network/listNetworks:
+    get:
+      tags:
+        - Network
+      summary: Networks list
+      operationId: NetworkController.ListNetworks
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Networks
+        '403':
+          description: ''
+  /network/listPorts:
+    post:
+      tags:
+        - Network
+      summary: Ports list
+      operationId: NetworkController.ListPorts
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Ports
+        '403':
+          description: ''
+  /network/listSubnetFromPrivate:
+    get:
+      tags:
+        - Network
+      summary: Subnet list from private
+      operationId: NetworkController.ListSubnetFromPrivate
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Subnets
+        '403':
+          description: ''
+  /network/listSubnets:
+    post:
+      tags:
+        - Network
+      summary: Subnets list
+      operationId: NetworkController.ListSubnets
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Subnets
+        '403':
+          description: ''
+  /network/removeGatewayFromSubnet:
+    delete:
+      tags:
+        - Network
+      summary: Remove Gateway from Subnet
+      operationId: NetworkController.RemoveGatewayFromSubnet
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              subnetID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Subnet
+        '403':
+          description: ''
+  /network/removeInterfacePortFromRouter:
+    delete:
+      tags:
+        - Network
+      summary: Remove Interface Port from Router
+      operationId: NetworkController.RemoveInterfacePortFromRouter
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              router_id: string
+              port_id: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/removeInterfaceSubnetFromRouter:
+    delete:
+      tags:
+        - Network
+      summary: Remove Interface Subnet from Router
+      operationId: NetworkController.RemoveInterfaceSubnetFromRouter
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              router_id: string
+              subnet_id: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /network/removeRoutesFromRouter:
+    delete:
+      tags:
+        - Network
+      summary: Remove Routes from Router
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              routerID: string
+              routes: '[]interface{}'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Router
+        '403':
+          description: ''
+  /network/updateNetwork:
+    put:
+      tags:
+        - Network
+      summary: Network update
+      operationId: NetworkController.UpdateNetwork
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              networkID: string
+              name: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Network
+        '403':
+          description: ''
+  /network/updatePort:
+    post:
+      tags:
+        - Network
+      summary: Port update
+      operationId: NetworkController.UpdatePort
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              portID: string
+              name: string
+              secGroupIDs: '[]string'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Port.
+        '403':
+          description: ''
+  /network/updateRouter:
+    post:
+      tags:
+        - Network
+      summary: Router update
+      operationId: NetworkController.UpdateRouter
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              router_id: string
+              ext_network: boolean
+              enable_snat: boolean
+              admin_state_up: boolean
+              distributed: boolean
+              name: string
+              description: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Router.
+        '403':
+          description: ''
+  /network/updateSubnet:
+    post:
+      tags:
+        - Network
+      summary: Subnet update
+      operationId: NetworkController.UpdateSubnet
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              name: string
+              subnetID: string
+              gatewayIP: string
+              networkID: string
+              cidr: string
+              hostRoute: '[]interface{}'
+              allocationPool: '[]interface{}'
+              dnsNameServers: '[]string'
+              enableDHCP: boolean
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Subnet.
+        '403':
+          description: ''
+  /secgroup/addSecGroup:
+    post:
+      tags:
+        - Security group
+      summary: Add to instance
+      operationId: SecurityGroupController.AddSecurityGroupto
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              sgID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /secgroup/createSecGroupAddToServer:
+    post:
+      tags:
+        - Security group
+      summary: Create and add to server
+      operationId: SecurityGroupController.CreateSecGroupAddToServer
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              groupName: string
+              description: string
+              serverID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /secgroup/createSecurityGroup:
+    post:
+      tags:
+        - Security group
+      summary: Create
+      operationId: SecurityGroupController.CreateSecurityGroup
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              groupName: string
+              description: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Security group
+        '403':
+          description: ''
+  /secgroup/createSecurityGroupRule:
+    post:
+      tags:
+        - Security group
+      summary: Create rule
+      operationId: SecurityGroupController.CreateSecurityGroupRule
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              direction: string
+              remoteGroupID: string
+              secGroupID: string
+              description: string
+              portRangeMin: string
+              portRangeMax: string
+              protocol: string
+              cidr: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Security group rule
+        '403':
+          description: ''
+  /secgroup/deleteSecurityGroup:
+    delete:
+      tags:
+        - Security group
+      summary: Delete
+      operationId: SecurityGroupController.DeleteSecurityGroup
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              sgID: '[]string'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /secgroup/deleteSecurityGroupRule:
+    delete:
+      tags:
+        - Security group
+      summary: Delete rule
+      operationId: SecurityGroupController.DeleteSecurityGroupRule
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              ruleID: '[]string'
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /secgroup/listSecurityGroupServer:
+    post:
+      tags:
+        - Security group
+      summary: List from instance
+      operationId: SecurityGroupController.ListSecurityGroupServer
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Security groups
+        '403':
+          description: ''
+  /secgroup/removeSecGroup:
+    post:
+      tags:
+        - Security group
+      summary: Remove from instance
+      operationId: SecurityGroupController.RemoveSecGroup
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              serverID: string
+              sgID: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: ''
+  /secgroup/securityGroupList:
+    get:
+      tags:
+        - Security group
+      summary: List
+      operationId: SecurityGroupController.SecurityGroupList
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Security groups
+        '403':
+          description: ''
+  /secgroup/updateSecGroup:
+    put:
+      tags:
+        - Security group
+      summary: Update
+      operationId: SecurityGroupController.UpdateSecGroup
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              sgID: string
+              name: string
+              description: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: object
+                    description: Security group
+        '403':
+          description: ''
+  /voucher/listVoucher:
+    get:
+      tags:
+        - Billing
+      summary: Vouchers list
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: array
+                    description: Vouchers
+        '403':
+          description: failed
+  /voucher/spendVoucher:
+    post:
+      tags:
+        - Billing
+      summary: Spend voucher
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              invoiceUid: string
+              voucherAmount: number
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: failed
+  /voucher/useVoucher:
+    post:
+      tags:
+        - Billing
+      summary: Use voucher code
+      parameters:
+        - in: body
+          name: body
+          schema:
+            example:
+              code: string
+      responses:
+        '200':
+          description: 'success'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  StatusCode:
+                    type: integer
+                    description: Status code.
+                  ErrorMsg:
+                    type: string
+                    description: Error message.
+                  Body:
+                    type: null
+        '403':
+          description: failed
+tags:
+  - name: Authentication
+  - name: Instance
+  - name: Keypair
+  - name: Volume
+  - name: Snapshot
+  - name: Network
+  - name: Security group
+  - name: Billing

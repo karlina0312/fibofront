@@ -1,0 +1,17 @@
+{
+  "project.create_title": "Төсөл үүсгэх",
+  "project.detail_title": "Төслийн ({name}) дэлгэрэнгүй",
+  "project.update_title": "Төсөл ({name}) засах",
+  "project.delete_title": "Төслүүд устгах",
+  "project.created": "{name} төсөл үүсгэж байна.",
+  "project.deleted": "{name} төсөлүүд устгаж байна.",
+  "project.updated": "{name} төсөл засаж байна.",
+  "project.member_create_title": "Төслийн гишүүн нэмэх",
+  "project.member_update_title": "Төслийн гишүүн засах",
+  "project.member_delete_title": "Төслийн гишүүнүүд устгах",
+  "project.member_created": "{name} төслийн гишүүн үүсгэж байна.",
+  "project.member_deleted": "{name} төслийн гишүүнүүд устгаж байна.",
+  "project.member_updated": "{name} төслийн гишүүн засаж байна.",
+  "project.domain_id": "Домэйны дугаар",
+  "members": "Домэйны дугаар"
+}

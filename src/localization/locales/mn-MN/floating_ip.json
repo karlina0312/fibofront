@@ -1,0 +1,9 @@
+{
+  "floating_ip.create_title": "Гадаад хаяг үүсгэх",
+  "floating_ip.detail_title": "Гадаад хаягын ({name}) дэлгэрэнгүй",
+  "floating_ip.update_title": "Гадаад хаяг ({name}) засах",
+  "floating_ip.delete_title": "Гадаад хаяг устгах",
+  "floating_ip.created": "{name} гадаад хаяг үүсгэж байна.",
+  "floating_ip.deleted": "{name} гадаад хаяг устгаж байна.",
+  "floating_ip.updated": "{name} гадаад хаяг засаж байна."
+}

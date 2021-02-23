@@ -1,0 +1,15 @@
+stages:
+  - run
+run_docker:
+  only:
+    - master
+  stage: run
+  script:
+    - sudo docker login registry.fibo.cloud -p ${DOCKER_PWD} -u ${DOCKER_USERNAME}
+    - sudo docker build -t registry.fibo.cloud/awsbill/frontend .
+    - sudo docker push registry.fibo.cloud/awsbill/frontend
+    - sudo docker ps --quiet --filter="name=frontend" | xargs --no-run-if-empty docker rm -f
+    - sudo docker run -dt -p 8082:80 --restart always --name frontend registry.fibo.cloud/awsbill/frontend
+    - docker image prune -f
+  tags:
+    - aws-bill-deploy

@@ -1,0 +1,47 @@
+.containerCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20%;
+
+  .icon {
+    font-size: 48px;
+    margin: 0 1rem 0 0;
+  }
+
+  .subIcon {
+    font-size: 40px;
+    margin: 0 1rem 0 0;
+  }
+
+  .amount {
+    font-size: 1.5rem;
+    font-weight: 700 !important;
+  }
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: x-large;
+  font-weight: 700 !important;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  line-height: initial;
+}
+
+.divider {
+  width: 2px;
+  margin: 0 1.5rem;
+  height: initial;
+  background-color: #fff;
+}

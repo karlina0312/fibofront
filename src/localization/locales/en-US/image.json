@@ -1,0 +1,9 @@
+{
+    "image.visibility": "Visibility",
+    "image.disk_format": "Disk format",
+    "image.container_format": "Container format",
+    "image.min_disk": "Min disk (GB)",
+    "image.min_ram": "Min ram (GB)",
+    "image.image_file": "Image file",
+    "image.create_title": "Create image"
+}

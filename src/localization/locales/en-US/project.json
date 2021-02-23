@@ -1,0 +1,16 @@
+{
+  "project.create_title": "Create project",
+  "project.detail_title": "Project ({name}) detail",
+  "project.update_title": "Update ({name}) project",
+  "project.delete_title": "Delete projects",
+  "project.created": "{name} project is creating.",
+  "project.deleted": "{name} projects is deleting.",
+  "project.updated": "{name} project is updating.",
+  "project.member_create_title": "Add project member",
+  "project.member_update_title": "Update ({name}) project member",
+  "project.member_delete_title": "Delete project members",
+  "project.member_created": "{name} project member is creating.",
+  "project.member_deleted": "{name} project members is deleting.",
+  "project.member_updated": "{name} project member is updating.",
+  "project.domain_id": "Domain ID"
+}

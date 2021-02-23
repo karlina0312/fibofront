@@ -1,0 +1,19 @@
+{
+  "router.create_title": "Чиглүүлэгч үүсгэх",
+  "router.detail_title": "Чиглүүлэгчийн ({name}) дэлгэрэнгүй",
+  "router.update_title": "Чиглүүлэгч ({name}) засах",
+  "router.delete_title": "Чиглүүлэгч устгах",
+  "router.created": "{name} чиглүүлэгч үүсгэж байна.",
+  "router.deleted": "{name} чиглүүлэгч устгаж байна.",
+  "router.updated": "{name} чиглүүлэгч засаж байна.",
+  "router.interface_create_title": "Интерфайс үүсгэх",
+  "router.interface_update_title": "Интерфайс ({name}) засах",
+  "router.interface_delete_title": "Интерфайсүүд устгах",
+  "router.interface_created": "{name} интерфайс үүсгэж байна.",
+  "router.interface_deleted": "{name} интерфайсүүд устгаж байна.",
+  "router.interface_updated": "{name} интерфайс засаж байна.",
+  "router.interface": "Интерфайс",
+  "router.interfaces": "Интерфайсүүд",
+  "router.ext_network_id": "Гадаад сүлжээ",
+  "router.distributed": "Тархмал"
+}

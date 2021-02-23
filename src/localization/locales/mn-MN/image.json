@@ -1,0 +1,9 @@
+{
+    "image.visibility": "Харагдац",
+    "image.disk_format": "Дискийн төрөл",
+    "image.container_format": "Контейнерын төрөл",
+    "image.min_disk": "Дискийн хэмжээ (GB)",
+    "image.min_ram": "Санах ойн хэмжээ (GB)",
+    "image.image_file": "Үйлдлийн системийн файл",
+    "image.create_title": "Үйлдлийн систем үүсгэх"
+}

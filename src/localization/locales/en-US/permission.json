@@ -1,0 +1,11 @@
+{
+  "permission.create_title": "Create permission",
+  "permission.detail_title": "Permission ({name}) detail",
+  "permission.update_title": "Update ({name}) permission",
+  "permission.delete_title": "Delete permission",
+  "permission.created": "{name} permission is creating.",
+  "permission.deleted": "{name} permission is deleting.",
+  "permission.updated": "{name} permission is updating.",
+  "permission.permission_update_title": "Update ({name}) permission permissions",
+  "permission.permission_updated": "{name} permission permissions is updating."
+}

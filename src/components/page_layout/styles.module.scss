@@ -1,0 +1,18 @@
+.header {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  .item {
+    margin: 0 12px 0 0;
+  }
+}

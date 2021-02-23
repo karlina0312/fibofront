@@ -1,0 +1,6 @@
+{
+    "system.endpoints": "Төгсгөлийн цэгүүд",
+    "system.compute_services": "Тооцоолох үйлчилгээнүүд",
+    "system.block_storage_services": "Хадгалах үйлчилгээнүүд",
+    "system.network_agents": "Сүлжээний агентууд"
+}
