@@ -328,8 +328,9 @@ const AwsBilling: React.FC<Props> = () => {
             </Card>
           </Col>
         </Row>
-        <Row gutter={14}>
+        <Row gutter={12}>
           <Col xl={20} md={16} xs={24}>
+            {/* graph bar хэсэг */}
             <Bar
               data={{
                 labels: chartLabel,
